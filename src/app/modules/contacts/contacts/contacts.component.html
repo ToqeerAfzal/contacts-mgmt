@@ -1,0 +1,11 @@
+<div class="main-container">
+    <div class="sidebar">
+        <app-header></app-header>
+        <p class="search-title">Search for a contact</p>
+        <p class="search-categs">Name, email or phone number</p>
+        <ng-container *ngFor="let cont of contacts">
+            <app-contact-item [contact]="cont"></app-contact-item>
+        </ng-container>
+    </div>
+    <app-details></app-details>
+</div>
