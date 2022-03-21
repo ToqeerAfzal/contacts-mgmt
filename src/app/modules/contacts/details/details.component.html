@@ -1,38 +1,58 @@
-<div class="row">
-    <div class="col-sm-3"></div>
-<div class="col-sm-9 main-content">
-    <img class="top-img" src="https://picsum.photos/200/300" alt="img" />
-    <div class class="top-info">
-        <span class="title">Johanna Stevens</span>
-        <span class="position">UI/UX Designs</span>
-        <div class="top-btns">
-            <a href="#" class="btn btn-primary message-btn"><img class="contact-icon1" src="../../../../assets/images/msgwhite.svg" />Message</a>
-            <button class="contact-btn"><img class="contact-icon1" src="../../../../assets/images/msg.svg" /></button>
-            <button class="contact-btn"><img class="contact-icon2" src="../../../../assets/images/call.svg" /></button>
-            <button class="contact-btn"><img class="contact-icon3" src="../../../../assets/images/more.svg" /></button>
+<div class="spinner-border" role="status" *ngIf="showLoader">
+    <span class="sr-only"></span>
+</div>
+<ng-container *ngIf="!showLoader">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9 main-content">
+            <img class="top-img" src="https://picsum.photos/200/300" alt="img" />
+            <div class class="top-info">
+                <span class="title">{{contact.name}}</span>
+                <span class="position">{{contact.position}}</span>
+                <div class="top-btns">
+                    <a href="#" class="btn btn-primary message-btn"><img class="contact-icon1"
+                            src="../../../../assets/images/msgwhite.svg" />Message</a>
+                    <button class="contact-btn"><img class="contact-icon1"
+                            src="../../../../assets/images/msg.svg" /></button>
+                    <button class="contact-btn"><img class="contact-icon2"
+                            src="../../../../assets/images/call.svg" /></button>
+                    <button class="contact-btn"><img class="contact-icon3"
+                            src="../../../../assets/images/more.svg" /></button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
-<div class="row detail-item">
-    <div class="col-sm-3 label">Email</div>
-    <div class="col-sm-9 value">When I first got into the advertising, I was looking for the magical combination that would put website into the top search engine rankings</div>
-</div>
-<div class="row detail-item">
-    <div class="col-sm-3 label">Email</div>
-    <div class="col-sm-9 value">When I first got into the advertising, I was looking for the magical combination that would put website into the top search engine rankings</div>
-</div>
-<div class="row detail-item">
-    <div class="col-sm-3 label">Email</div>
-    <div class="col-sm-9 value">When I first got into the advertising, I was looking for the magical combination that would put website into the top search engine rankings</div>
-</div>
-<div class="row detail-item">
-    <div class="col-sm-3 label">Email</div>
-    <div class="col-sm-9 value">
-        <div class="contact-btns">
-            <button class="contact-btn"><img class="contact-icon1" src="../../../../assets/images/msg.svg" /></button>
-            <button class="contact-btn"><img class="contact-icon2" src="../../../../assets/images/call.svg" /></button>
-            <button class="contact-btn"><img class="contact-icon3" src="../../../../assets/images/more.svg" /></button>
+    <div class="row detail-item">
+        <div class="col-sm-3 label">Bio</div>
+        <div class="col-sm-9 value">{{contact.bio}}</div>
+    </div>
+    <div class="row detail-item">
+        <div class="col-sm-3 label">Email</div>
+        <div class="col-sm-9 value">{{contact.email}}</div>
+    </div>
+    <div class="row detail-item">
+        <div class="col-sm-3 label">Dial</div>
+        <div class="col-sm-9 value">{{contact.dial}}</div>
+    </div>
+    <div class="row detail-item">
+        <div class="col-sm-3 label">Meeting</div>
+        <div class="col-sm-9 value">{{contact.meeting}}</div>
+    </div>
+    <div class="row detail-item">
+        <div class="col-sm-3 label">Phone</div>
+        <div class="col-sm-9 value">{{contact.phone}}</div>
+    </div>
+    <div class="row detail-item">
+        <div class="col-sm-3 label">Social</div>
+        <div class="col-sm-9 value">
+            <div class="contact-btns">
+                <button class="contact-btn"><img class="contact-icon1"
+                        src="../../../../assets/images/msg.svg" /></button>
+                <button class="contact-btn"><img class="contact-icon2"
+                        src="../../../../assets/images/call.svg" /></button>
+                <button class="contact-btn"><img class="contact-icon3"
+                        src="../../../../assets/images/more.svg" /></button>
+            </div>
         </div>
     </div>
-</div>
+</ng-container>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/app.interface';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-contacts',
@@ -8,44 +9,30 @@ import { Contact } from 'src/app/app.interface';
 })
 export class ContactsComponent implements OnInit {
 
-  contacts:Contact[]=[
-    {
-      title:"Nicholas Gordon",
-      position:"Developer"
-    },
-    {
-      title:"Bradley Malone",
-      position:"Sales Manager"
-    },
-    {
-      title:"Johanna Stevens",
-      position:"Project Manager"
-    },
-    {
-      title:"Marvin Lambert",
-      position:"Designer"
-    },
-    {
-      title:"Nicholas Gordon",
-      position:"Developer"
-    },
-    {
-      title:"Bradley Malone",
-      position:"Sales Manager"
-    },
-    {
-      title:"Johanna Stevens",
-      position:"Project Manager"
-    },
-    {
-      title:"Marvin Lambert",
-      position:"Designer"
-    }
-  ]
+  contacts:Contact[]=[];
+  contactId:string='';
+  showLoader=false;
 
-  constructor() { }
+  constructor(private appService:AppService) { }
 
   ngOnInit(): void {
+    this.getContacts();
   }
 
+  getContacts(){
+    this.showLoader=true;
+    this.appService.getContacts().subscribe((data:any)=>{
+      this.contacts=data;
+      this.contactId=data[0].id;
+      this.showLoader=false;
+    },
+    err=>{
+      console.log(err);
+      this.showLoader=false;
+    })
+  }
+
+  getDetails(id:string){
+    this.contactId=id;
+  }
 }

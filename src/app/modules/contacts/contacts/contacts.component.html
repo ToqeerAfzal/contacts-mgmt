@@ -1,11 +1,16 @@
+<div class="spinner-border" role="status" *ngIf="showLoader">
+    <span class="sr-only"></span>
+</div>
 <div class="main-container">
     <div class="sidebar">
         <app-header></app-header>
-        <p class="search-title">Search for a contact</p>
-        <p class="search-categs">Name, email or phone number</p>
-        <ng-container *ngFor="let cont of contacts">
-            <app-contact-item [contact]="cont"></app-contact-item>
-        </ng-container>
+        <div class="scroller">
+            <p class="search-title">Search for a contact</p>
+            <p class="search-categs">Name, email or phone number</p>
+            <ng-container *ngFor="let cont of contacts">
+                <app-contact-item [contact]="cont" (click)="getDetails(cont.id??'')"></app-contact-item>
+            </ng-container>
+        </div>
     </div>
-    <app-details></app-details>
+    <app-details [contactId]="contactId"></app-details>
 </div>
